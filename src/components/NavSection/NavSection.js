@@ -8,7 +8,7 @@ import './NavSection.css'
 
 const NavSection = () => {
     return (
-        <div className="banner sticky-top">
+        <div className="banner">
             <div className="navSection">
                 <Navbar className="navber d-flex justify-content-between">
                     <Form inline>
