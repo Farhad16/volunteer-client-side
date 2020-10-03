@@ -1,0 +1,67 @@
+.registerContainer, .regSection{
+    margin: 0 auto;
+}
+
+.registerContainer{
+    height: 600px;
+    background-color: #F8FAFC;
+    width: 70%;
+    box-sizing: border-box;
+}
+
+.registration{
+    text-align: center;
+    padding-top: 40px;
+}
+.registration h5{
+    text-align: left;
+    font-weight: 700;
+    color: black;
+    margin:30px 0px 0px 40px;
+}
+
+.registration img{
+    width: 200px;
+}
+
+.regSection{
+    width: 40%;
+    height: 400px;
+    background: #ffffff;
+    border: 2px solid rgb(206, 202, 202);
+    border-radius: 5px;
+    margin-top: 40px;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+.registerForm{
+    margin: 0 auto;
+}
+
+.registerForm input{
+    border: none;
+    outline: none;
+    font-size: 14px;
+    font-weight: 400;
+    color: rgb(80, 80, 80);
+    width: 80%;
+    border-bottom:1px solid rgb(189, 189, 189) ;
+    margin-top: 20px;
+    padding-bottom: 5px;
+}
+
+::placeholder{
+    color: black;
+}
+
+
+.registerForm input[type=submit]{
+    background-color: #3F90FC;
+    cursor: pointer;
+    padding: 5px;
+    color: white;
+}
+.registerForm span{
+    color: red;
+}

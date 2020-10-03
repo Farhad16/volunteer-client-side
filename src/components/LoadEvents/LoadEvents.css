@@ -6,7 +6,7 @@
     width: 91%;
     padding: 15px 20px 20px 20px;
     text-align: center;
-    background: rgb(16, 146, 179);
+    background: rgb(45, 209, 231);
     height: 25%;
     box-sizing: border-box;
     border-bottom-left-radius: 10px;
@@ -14,7 +14,8 @@
 }
 
 .eventName h5{
-    font-size: 28px;
+    font-size: 26px;
+    font-weight: 600;
 }
 
 .eventImg img{
@@ -25,6 +26,7 @@
 .singleEvent{
     box-sizing: border-box;
     width: 100%;
+    cursor: pointer;
 }
 
 @media only screen and (max-width : 920px) {

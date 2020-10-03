@@ -1,12 +1,11 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyDNqHRN7ZTizWxf9A1aeCV82ujyRHbJ_vo",
-    authDomain: "ema-john16.firebaseapp.com",
-    databaseURL: "https://ema-john16.firebaseio.com",
-    projectId: "ema-john16",
-    storageBucket: "ema-john16.appspot.com",
-    messagingSenderId: "134241757474",
-    appId: "1:134241757474:web:c35b3158e8a24f91dc5d7b",
-    measurementId: "G-39QDGQJ9H7"
+    apiKey: "AIzaSyC3BQkCe_fzEK_SJyAEkv4ARUDLoN7qYA0",
+    authDomain: "volunteer-social.firebaseapp.com",
+    databaseURL: "https://volunteer-social.firebaseio.com",
+    projectId: "volunteer-social",
+    storageBucket: "volunteer-social.appspot.com",
+    messagingSenderId: "145990978231",
+    appId: "1:145990978231:web:c7c0d9e919a1e7e3625b32"
 };
 
 export default firebaseConfig;
