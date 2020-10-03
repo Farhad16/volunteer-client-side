@@ -20,9 +20,15 @@
 .eventImg img{
     width: 100%;
     position: relative;
-    margin-bottom: 30px
+    margin-bottom: 30px;
 }
 .singleEvent{
     box-sizing: border-box;
     width: 100%;
+}
+
+@media only screen and (max-width : 920px) {
+    .eventName{
+        width: 92%;
+    }
 }
