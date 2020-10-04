@@ -1,29 +1,46 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import logo from '../../assets/logos/logo.png'
 import './Register.css'
 import { useForm } from "react-hook-form";
 import { UserContext } from '../../App';
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useParams } from 'react-router-dom';
 
 
 const Register = () => {
+    const { eventId } = useParams();
+    const [event, setEvent] = useState({})
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+
     const { register, handleSubmit, watch, errors } = useForm();
 
+    const history = useHistory();
+
+    const localDate = (Date().toLocaleString().slice(0, 16));
+    const todayDate = localDate.slice(4, 15);
+
+    useEffect(() => {
+        fetch(`http://localhost:4000/singleEvent/${eventId}`)
+            .then(res => res.json())
+            .then(data => setEvent(data))
+    }, [eventId])
+
     const onSubmit = data => {
-        const orderDetails = { ...loggedInUser, orderTime: new Date() }
-        fetch('https://limitless-sands-03516.herokuapp.com/addOrder', {
+        const registerDetails = { ...event, ...data, dateWithName: todayDate }
+        fetch('http://localhost:4000/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(orderDetails)
+            body: JSON.stringify(registerDetails)
 
         }).then(res => res.json())
-            .then(data => {
-                if (data) {
-                    alert('Your order placed successfully')
+            .then(result => {
+                if (result) {
+                    alert('You are registered successfully')
+                    history.replace('/events');
                 }
             })
     };
+
+
     return (
         <div className="registerContainer">
             <div className="registration">
@@ -31,15 +48,15 @@ const Register = () => {
                 <div className="regSection">
                     <h5>Register as a volunteer</h5>
                     < form onSubmit={handleSubmit(onSubmit)} className="registerForm">
-                        < input name="name" ref={register({ required: true })} defaultValue={loggedInUser.name} placeholder="Your Name" />
+                        < input name="name" ref={register({ required: true })} defaultValue={loggedInUser.displayName} placeholder="Your Name" />
                         {errors.name && <span>Name is required</span>}
                         < input name="email" ref={register({ required: true })} defaultValue={loggedInUser.email} placeholder="Your Email" />
                         {errors.email && <span>Email is required</span>}
-                        < input name="address" ref={register({ required: true })} placeholder="Date" />
+                        < input type="date" name="date" ref={register({ required: true })} placeholder="Date" />
                         {errors.address && <span>Address is required</span>}
-                        < input name="phone" ref={register({ required: true })} placeholder="Description" />
+                        < input name="description" ref={register({ required: true })} placeholder="Description" />
                         {errors.phone && <span>Phone is required</span>}
-                        < input name="email" ref={register({ required: true })} defaultValue={loggedInUser.email} placeholder="Event Name" />
+                        < input name="eventName" ref={register({ required: true })} defaultValue={event.name} placeholder="Event Name" />
                         {errors.email && <span>Email is required</span>}
                         <input type="submit" placeholder="Registration" />
                     </form >

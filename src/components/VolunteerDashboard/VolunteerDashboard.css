@@ -1,0 +1,52 @@
+.navLinkUser{
+    color: #00a2b8;
+    font-weight: 700;
+    padding: 6px 12px;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+.volunteer{
+    padding: 0 100px;
+    background-color: #e3e9ee;
+    height: 600px;
+}
+
+.volunteeringList{
+    margin: 30px 50px;
+}
+
+
+
+.event{
+    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.eventImage img{
+    width: 180px;
+    height: 180px;
+    border-radius: 10px;
+}
+
+.eventNameAndDate{
+    padding-left: 30px;
+}
+
+.eventNameAndDate h4{
+    font-weight: 700;
+}
+
+.eventNameAndDate p{
+    font-weight: 700;
+}
+
+.cancel{
+    position:absolute;
+    right: 40px;
+    bottom: 20px;
+}

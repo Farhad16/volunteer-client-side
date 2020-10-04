@@ -5,6 +5,9 @@ import { useState } from 'react';
 import Landing from './components/Landing/Landing';
 import Login from './components/Login/Login';
 import Register from './components/Register/Register';
+import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import NotFound from './components/NotFound/NotFound';
+import VolunteerDashboard from './components/VolunteerDashboard/VolunteerDashboard';
 
 
 
@@ -24,9 +27,15 @@ function App() {
           <Route path="/login">
             <Login></Login>
           </Route>
-          <Route path="/register/:id">
-            <Register></Register>
+          <Route path="/home">
+            <Landing></Landing>
           </Route>
+          <PrivateRoute path="/register/:eventId">
+            <Register></Register>
+          </PrivateRoute>
+          <PrivateRoute path="/events">
+            <VolunteerDashboard></VolunteerDashboard>
+          </PrivateRoute>
         </Switch>
       </Router>
     </UserContext.Provider>

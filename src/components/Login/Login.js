@@ -1,20 +1,36 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import * as firebase from "firebase/app";
 import "firebase/auth";
 import firebaseConfig from './firebase.config';
 import './Login.css'
 import logo from '../../assets/logos/logo.png'
 import google from '../../assets/logos/google.png'
-import { Link } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
+import { UserContext } from '../../App';
+
 
 firebase.initializeApp(firebaseConfig);
 
 const Login = () => {
 
-    const provider = new firebase.auth.GoogleAuthProvider();
-    const googleSignIn = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
 
+    const history = useHistory();
+    const location = useLocation();
+    let { from } = location.state || { from: { pathname: "/" } };
+
+    const googleSignIn = () => {
+        const provider = new firebase.auth.GoogleAuthProvider();
+        firebase.auth().signInWithPopup(provider)
+            .then(result => {
+                setLoggedInUser(result.user);
+                history.replace(from);
+            }).catch(error => {
+                console.log(error.message);
+            });
     }
+
+
     return (
         <div className="loginSection">
             <div className="login">

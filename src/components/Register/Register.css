@@ -43,8 +43,8 @@
     border: none;
     outline: none;
     font-size: 14px;
-    font-weight: 400;
-    color: rgb(80, 80, 80);
+    font-weight: 600;
+    color: rgb(58, 53, 53);
     width: 80%;
     border-bottom:1px solid rgb(189, 189, 189) ;
     margin-top: 20px;
@@ -52,7 +52,8 @@
 }
 
 ::placeholder{
-    color: black;
+    color: rgb(80, 80, 80);
+    font-weight: 400;
 }
 
 

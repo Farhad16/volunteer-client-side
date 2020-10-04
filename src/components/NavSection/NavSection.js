@@ -1,12 +1,15 @@
 
-import React from 'react';
+import React, { useContext } from 'react';
 import { Button, Form, FormControl, InputGroup, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import { UserContext } from '../../App';
 import logo from '../../assets/logos/logo.png'
 import './NavSection.css'
 
 
 const NavSection = () => {
+    const [loggedInUser, setLoggedInUser] = useContext(UserContext)
+
     return (
         <div className="banner">
             <div className="navSection">
@@ -19,13 +22,12 @@ const NavSection = () => {
                             <Link to="/home" className="navLink">Home</Link>
                             <Link to="/dental" className="navLink">Dental Services</Link>
                             <Link to="/review" className="navLink">Review</Link>
-                            <Link to="/blogs" className="navLink">Blogs</Link>
                             <Link to="/contact" className="navLink">Contact</Link>
-                            <Link to="/login" className="navLink">Login</Link>
+                            <Link to="/events" className="navLink">Events</Link>
+                            {loggedInUser.email ?
+                                <Link to="/" className="navLink" onClick={() => { setLoggedInUser({}) }}>Logout</Link>
+                                : <Link to="/login" className="navLink">Login</Link>}
 
-                            {/* <Link to="/login" className="navLink" onClick={() => { setSignInUser({}) }}>Logout</Link> : */}
-
-                            {/* <Link to="" className="navLinkUser">{signInUser.name}</Link> */}
                         </Nav>
                     </Form>
                 </Navbar>
