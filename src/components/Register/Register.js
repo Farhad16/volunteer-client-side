@@ -34,7 +34,6 @@ const Register = () => {
         }).then(res => res.json())
             .then(result => {
                 if (result) {
-                    alert('You are registered successfully')
                     history.replace('/events');
                 }
             })

@@ -20,14 +20,16 @@ const NavSection = () => {
                     <Form inline>
                         <Nav>
                             <Link to="/home" className="navLink">Home</Link>
-                            <Link to="/dental" className="navLink">Dental Services</Link>
-                            <Link to="/review" className="navLink">Review</Link>
-                            <Link to="/contact" className="navLink">Contact</Link>
+                            <Link to="/review" className="navLink">Duration</Link>
                             <Link to="/events" className="navLink">Events</Link>
+                            <Link to="/blogs" className="navLink">Blogs</Link>
                             {loggedInUser.email ?
                                 <Link to="/" className="navLink" onClick={() => { setLoggedInUser({}) }}>Logout</Link>
                                 : <Link to="/login" className="navLink">Login</Link>}
 
+                            <Link to="" className="navLinkUser">{loggedInUser.displayName}</Link>
+                            <Link to="/register" className="navLink register">Register</Link>
+                            <Link to="/admin" className="navLink admin">Admin</Link>
                         </Nav>
                     </Form>
                 </Navbar>

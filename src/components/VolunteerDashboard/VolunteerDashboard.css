@@ -1,5 +1,5 @@
 .navLinkUser{
-    color: #00a2b8;
+    color: #000000;
     font-weight: 700;
     padding: 6px 12px;
     font-size: 14px;
@@ -9,11 +9,11 @@
 .volunteer{
     padding: 0 100px;
     background-color: #e3e9ee;
-    height: 600px;
 }
 
 .volunteeringList{
     margin: 30px 50px;
+    padding-bottom: 30px;
 }
 
 

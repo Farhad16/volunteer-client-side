@@ -8,6 +8,7 @@ import Register from './components/Register/Register';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
 import NotFound from './components/NotFound/NotFound';
 import VolunteerDashboard from './components/VolunteerDashboard/VolunteerDashboard';
+import AdminDashboard from './components/AdminDashboard/AdminDashboard';
 
 
 
@@ -21,7 +22,7 @@ function App() {
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
       <Router>
         <Switch>
-          <Route exact path="/">
+          <Route exact path={["/home", "/"]}>
             <Landing></Landing>
           </Route>
           <Route path="/login">
@@ -30,12 +31,18 @@ function App() {
           <Route path="/home">
             <Landing></Landing>
           </Route>
-          <PrivateRoute path="/register/:eventId">
+          <PrivateRoute path={["/register/:eventId", "/register"]}>
             <Register></Register>
           </PrivateRoute>
           <PrivateRoute path="/events">
             <VolunteerDashboard></VolunteerDashboard>
           </PrivateRoute>
+          <Route path="/admin">
+            <AdminDashboard></AdminDashboard>
+          </Route>
+          <Route path="*">
+            <NotFound></NotFound>
+          </Route>
         </Switch>
       </Router>
     </UserContext.Provider>

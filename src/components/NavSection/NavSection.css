@@ -8,7 +8,7 @@
 
 .navSection{
     padding: 10px 50px;
-    background:rgba(255, 255, 255, 0.5);
+    background:rgba(187, 190, 224, 0.5);
     height: 500px;
 }
 
@@ -18,13 +18,30 @@
 }
 
 .navLink{
-    color: #3f3d3d;
+    color: #1b1a1a;
     font-weight: 500;
     padding: 6px 12px;
     font-size: 14px;
 }
 
+.admin{
+    background-color: #414344;
+    text-decoration: none;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+}
 
+.admin:hover{
+    background-color: #2e2f30 !important;
+}
+
+.register{
+    background-color: #007bff;
+    text-decoration: none;
+    border-radius: 5px;
+    color: rgb(255, 255, 255);
+    margin-right: 10px;
+}
 
 .navLinkCart{
     color: black;
