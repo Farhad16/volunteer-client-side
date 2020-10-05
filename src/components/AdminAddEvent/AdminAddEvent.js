@@ -13,7 +13,7 @@ const AdminAddEvent = () => {
     const history = useHistory();
 
     const onSubmit = (data, e) => {
-        console.log(data);
+
         fetch('https://murmuring-peak-07736.herokuapp.com/addEvent', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
