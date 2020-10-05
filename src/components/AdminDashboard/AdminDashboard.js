@@ -4,15 +4,22 @@ import logo from '../../assets/logos/logo.png'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus, faTrashAlt, faUserFriends } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
+import AdminAddEvent from '../AdminAddEvent/AdminAddEvent';
+import AdminDisplayEvent from '../AdminDisplayEvent/AdminDisplayEvent';
 
 const AdminDashboard = () => {
     const [sidebar, setSidebar] = useState(true)
     const [volunteerList, setVolunteerList] = useState([]);
 
+    const [isLoading, setIsLoading] = useState(false)
+
     useEffect(() => {
         fetch('http://localhost:4000/getAllVolunteer')
             .then(res => res.json())
-            .then(data => setVolunteerList(data))
+            .then(data => {
+                setVolunteerList(data)
+                setIsLoading(true);
+            })
     }, [])
 
 
@@ -25,10 +32,13 @@ const AdminDashboard = () => {
                 if (result) {
                     fetch('http://localhost:4000/getAllVolunteer')
                         .then(res => res.json())
-                        .then(data => setVolunteerList(data))
+                        .then(data => {
+                            setVolunteerList(data);
+                        })
                 }
             })
     }
+
 
     return (
         <div className="row adminSection">
@@ -41,36 +51,35 @@ const AdminDashboard = () => {
             </div>
             <div className="adminPanel col-md-9">
                 {
-                    sidebar ? <div>
-                        <h2>Registered volunteer</h2>
-                        <div className="volunteerList">
-                            <table>
-                                <thead className="thead">
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Email ID</th>
-                                        <th>Registating Date</th>
-                                        <th>Volunteer List</th>
-                                        <th>Action</th>
-                                    </tr>
-                                </thead>
-                                {
-                                    volunteerList.map(vt => <tbody key={vt._id}>
+                    sidebar ? <div className="volunteerList">
+                        <h3>Registered volunteer</h3>
+                        <table>
+                            <thead className="thead">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email ID</th>
+                                    <th>Registating Date</th>
+                                    <th>Volunteer List</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            {
+                                isLoading ? volunteerList.map(volunteer => <AdminDisplayEvent key={volunteer._id} event={volunteer} handleDelete={handleDelete}></AdminDisplayEvent>) :
+                                    <tbody>
                                         <tr>
-                                            <td>{vt.name}</td>
-                                            <td>{vt.email}</td>
-                                            <td>{vt.date}</td>
-                                            <td>{vt.eventName}</td>
-                                            <td onClick={() => handleDelete(vt._id)}><FontAwesomeIcon icon={faTrashAlt} className="trash" /></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td>Loading....
+                                                <div className="loadingVolunteer"></div>
+                                            </td>
+                                            <td></td>
+                                            <td></td>
                                         </tr>
-                                    </tbody>)
-                                }
-                            </table>
-                        </div>
+                                    </tbody>
+                            }
+                        </table>
                     </div> :
-                        <div className="addEvent">
-                            <h3>Add Event</h3>
-                        </div>
+                        <AdminAddEvent></AdminAddEvent>
                 }
             </div>
         </div>

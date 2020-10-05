@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './LoadEvents.css'
+import noImg from '../../assets/images/noImg.jpg'
+
 
 const LoadEvents = (props) => {
-
     const { name, pic, _id } = props.event;
 
     return (
@@ -13,7 +14,10 @@ const LoadEvents = (props) => {
                     <h5>{name}</h5>
                 </div>
                 <div className="eventImg">
-                    <img src={require(`../../assets/images/${pic}`)} alt="" />
+                    {
+                        pic ? <img src={require(`../../assets/images/${pic}`)} alt="" /> :
+                            <img src={noImg} alt="" />
+                    }
                 </div>
             </Link>
         </div >

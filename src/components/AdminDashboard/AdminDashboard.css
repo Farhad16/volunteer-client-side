@@ -13,6 +13,7 @@
 .menu{
     margin-top: 40px;
 }
+
 .option{
     line-height: 5px;
     font-size: 14px;
@@ -29,13 +30,14 @@
 
 .adminPanel{
     margin-top: 30px;
-}
-
-.volunteerList{
     background-color: #F8FAFC;
     width: 100%;
     height: 450px;
     border-radius: 10px;
+}
+
+.adminPanel h3{
+    padding: 20px 20px 0px 20px;
 }
 
 table {
@@ -64,11 +66,26 @@ thead th{
     padding: 10px;
   }
   
-.trash{
-    font-size: 20px;
-    color: rgb(255, 255, 255);
-    cursor: pointer;
-    background-color: rgb(224, 14, 14);
-    padding: 2px;
-    border-radius: 2px;
-}
+
+
+
+  .loadingVolunteer {
+    border: 5px solid #a3a3a3;
+    border-radius: 50%;
+    border-top: 5px dotted #b1b1b1;
+    width: 50px;
+    height: 50px;
+    animation: spin 2s linear infinite;
+    margin: 0 auto;
+    margin-bottom: 50px;
+  }
+
+  @-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }

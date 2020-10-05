@@ -1,0 +1,64 @@
+.addField{
+    background-color: #ffffff;
+    margin: 0 auto;
+    padding: 40px;
+    width: 90%;
+    border-radius: 10px;
+}
+.addForm label{
+    margin-right: 100px;
+}
+
+.addField input{
+    border: none;
+    outline: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: rgb(58, 53, 53);
+    border-bottom:1px solid rgb(189, 189, 189) ;
+    margin-right: 40px;
+    padding-top: 10px;
+    width: 100%;
+}
+
+.custom-file-upload{
+    content: 'Select some files';
+}
+.addEvent h3{
+    padding: 20px 0px 30px 45px;
+}
+
+.upload{
+    background-color: #E5F3FF;
+    border: 1px solid #62a5e0;
+    margin-top: 30px;
+    padding: 5px 8px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+.upload:focus{
+    outline: none;
+}
+.uploadIcon{
+    color: #62a5e0;
+    font-size: 16px;
+}
+
+.submitBtn{
+    background-color: #479ce7;
+    border: 1px solid #1882df;
+    margin-top: 30px;
+    margin-right: 50px;
+    padding: 5px 8px;
+    font-size: 14px;
+    font-weight: 400;
+    border-radius: 5px;
+    float: right;
+    color: white;
+}
+
+.submitBtn:focus{
+    outline: none;
+}

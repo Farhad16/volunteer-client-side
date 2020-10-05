@@ -1,0 +1,9 @@
+.trash{
+    font-size: 20px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    background-color: rgb(224, 14, 14);
+    padding: 2px;
+    border-radius: 2px;
+}
+

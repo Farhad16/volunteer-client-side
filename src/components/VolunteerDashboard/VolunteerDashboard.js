@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { UserContext } from '../../App';
 import logo from '../../assets/logos/logo.png'
 import './VolunteerDashboard.css'
+import noImg from '../../assets/images/noImg.jpg'
 
 
 const VolunteerDashboard = () => {
@@ -59,7 +60,10 @@ const VolunteerDashboard = () => {
                             <div className="col-xl-6 col-lg-6 col-md-6 col-sm-12 col-12" key={register._id}>
                                 <div className="event d-flex ">
                                     <div className="eventImage">
-                                        <img src={require(`../../assets/images/${register.pic}`)} alt="" />
+                                        {
+                                            register.pic ? <img src={require(`../../assets/images/${register.pic}`)} alt="" /> :
+                                                <img src={noImg} alt="" />
+                                        }
                                     </div>
                                     <div className="eventNameAndDate">
                                         <h4>{register.eventName}</h4>

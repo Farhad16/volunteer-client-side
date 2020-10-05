@@ -57,7 +57,7 @@ const Register = () => {
                         {errors.phone && <span>Phone is required</span>}
                         < input name="eventName" ref={register({ required: true })} defaultValue={event.name} placeholder="Event Name" />
                         {errors.email && <span>Email is required</span>}
-                        <input type="submit" placeholder="Registration" />
+                        <input type="submit" value="Registration" />
                     </form >
                 </div>
             </div>
