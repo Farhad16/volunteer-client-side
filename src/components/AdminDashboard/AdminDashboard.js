@@ -14,7 +14,7 @@ const AdminDashboard = () => {
     const [isLoading, setIsLoading] = useState(false)
 
     useEffect(() => {
-        fetch('http://localhost:4000/getAllVolunteer')
+        fetch('https://murmuring-peak-07736.herokuapp.com/getAllVolunteer')
             .then(res => res.json())
             .then(data => {
                 setVolunteerList(data)
@@ -24,13 +24,13 @@ const AdminDashboard = () => {
 
 
     const handleDelete = (id) => {
-        fetch(`http://localhost:4000/deleteRegistered/${id}`, {
+        fetch(`https://murmuring-peak-07736.herokuapp.com/deleteRegistered/${id}`, {
             method: 'DELETE',
 
         }).then(res => res.json())
             .then(result => {
                 if (result) {
-                    fetch('http://localhost:4000/getAllVolunteer')
+                    fetch('https://murmuring-peak-07736.herokuapp.com/getAllVolunteer')
                         .then(res => res.json())
                         .then(data => {
                             setVolunteerList(data);

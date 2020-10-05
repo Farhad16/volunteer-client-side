@@ -14,7 +14,7 @@ const AdminAddEvent = () => {
 
     const onSubmit = (data, e) => {
         console.log(data);
-        fetch('http://localhost:4000/addEvent', {
+        fetch('https://murmuring-peak-07736.herokuapp.com/addEvent', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)

@@ -7,7 +7,7 @@ const Events = () => {
     const [event, setEvent] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:4000/getAllEvents')
+        fetch('https://murmuring-peak-07736.herokuapp.com/getAllEvents')
             .then(res => res.json())
             .then(data => setEvent(data));
         setIsLoading(true)

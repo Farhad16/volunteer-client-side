@@ -19,14 +19,14 @@ const Register = () => {
     const todayDate = localDate.slice(4, 15);
 
     useEffect(() => {
-        fetch(`http://localhost:4000/singleEvent/${eventId}`)
+        fetch(`https://murmuring-peak-07736.herokuapp.com/singleEvent/${eventId}`)
             .then(res => res.json())
             .then(data => setEvent(data))
     }, [eventId])
 
     const onSubmit = data => {
         const registerDetails = { ...event, ...data, dateWithName: todayDate }
-        fetch('http://localhost:4000/register', {
+        fetch('https://murmuring-peak-07736.herokuapp.com/register', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(registerDetails)

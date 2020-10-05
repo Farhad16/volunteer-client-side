@@ -15,20 +15,20 @@ const VolunteerDashboard = () => {
     const [email, setEmail] = useState(loggedInUser.email);
 
     useEffect(() => {
-        fetch(`http://localhost:4000/volunteeringList/${email}`)
+        fetch(`https://murmuring-peak-07736.herokuapp.com/volunteeringList/${email}`)
             .then(res => res.json())
             .then(data => setRegistered(data));
     }, [email])
 
 
     const handleCancel = (eventId) => {
-        fetch(`http://localhost:4000/deleteRegistered/${eventId}`, {
+        fetch(`https://murmuring-peak-07736.herokuapp.com/deleteRegistered/${eventId}`, {
             method: 'DELETE',
 
         }).then(res => res.json())
             .then(result => {
                 if (result) {
-                    fetch(`http://localhost:4000/volunteeringList/${email}`)
+                    fetch(`https://murmuring-peak-07736.herokuapp.com/volunteeringList/${email}`)
                         .then(res => res.json())
                         .then(data => setRegistered(data));
                 }
