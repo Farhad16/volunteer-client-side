@@ -11,7 +11,7 @@ const Register = () => {
     const [event, setEvent] = useState({})
     const [loggedInUser, setLoggedInUser] = useContext(UserContext)
 
-    const { register, handleSubmit, watch, errors } = useForm();
+    const { register, handleSubmit, errors } = useForm();
 
     const history = useHistory();
 
